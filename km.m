@@ -1,4 +1,4 @@
-function km(sample, feature_start, feature_end)
+function err = km(sample, feature_start, feature_end)
 % Runs K-Means with Z-Scoring for a specific sample
 % using only the specified features
 % 1 <= sample <= 26
@@ -28,4 +28,11 @@ fprintf('Running KMeans on Sample %d with features %d to %d', sample, feature_st
 
 % subtract 1 to go from class 1, 2 to binary 0, 1 for parkinsons
 k = (kmeans(Z, 2) - 1)';
-o = reshape(k, [20, 2])
+o = reshape(k, [20, 2]);
+
+% calculate the number wrong, knowing that kmeans does not guarantee 
+% parkinsons = 0 or 1, so try both and take the min
+w1 = abs(sum(o(:,1) - 1)) + abs(sum(o(:,2)));
+w2 = abs(sum(o(:,1))) + abs(sum(o(:,2) - 1));
+wrong = min(w1, w2);
+err = wrong / 40;
