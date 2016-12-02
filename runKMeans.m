@@ -1,4 +1,4 @@
-function err = runKMeans(K,fileString, start_feature, end_feature)
+function [err,KmusOld,Kmus] = runKMeans(K,fileString, start_feature, end_feature)
 %load data file specified by fileStringfrom Bishop book
 data = load(fileString);
 Y = data(:,27);

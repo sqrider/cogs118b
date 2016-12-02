@@ -1,8 +1,10 @@
-function err = runKMeans(K,fileString)
+function [err,kmusold] = runKMeans(K,fileString, start_feature, end_feature)
 %load data file specified by fileStringfrom Bishop book
 data = load(fileString);
 Y = data(:,27);
-data = data(:,4:11);
+%4:11
+data = data(:,start_feature:end_feature);
+%data = data(:,1:26);
 m = mean(data);
 s = std(data);
 
@@ -59,7 +61,7 @@ end
 
 error = sum(xor(Rnk(:,2), Y)) / N;
 
-err = min(error, error2);
+err = min(error, 1 - error);
 
 %plotCurrent(X,Rnk,Kmus);
 
