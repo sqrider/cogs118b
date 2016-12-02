@@ -3,8 +3,8 @@ function err = runKMeans(K,fileString, start_feature, end_feature)
 data = load(fileString);
 Y = data(:,27);
 %4:11
-%data = data(:,start_feature:end_feature);
-data = data(:,1:26);
+data = data(:,start_feature:end_feature);
+%data = data(:,1:26);
 m = mean(data);
 s = std(data);
 
