@@ -9,15 +9,15 @@ sf = 2;
 ef = 27;
 
 num_samples = 26;
-min_feature = 13;
-max_feature = 27;
+min_feature = 5;
+max_feature = 22;
 % For each sample
 for s=1:num_samples
     % For each sample start
     for i=min_feature:max_feature
         % For each sample end
         for j=i:max_feature
-            e = km(s, [5:12, i:j]);
+            e = km(s, [2:4, i:j, 23:26]);
             if (e < err)
                 err = e;
                 best = s;
