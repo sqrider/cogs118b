@@ -26,6 +26,8 @@ Z = (data - m) ./ s;
 % subtract 1 to go from class 1, 2 to binary 0, 1 for parkinsons
 k = (kmeans(Z, 2) - 1)';
 o = reshape(k, [20, 2]);
+print(o);
+print(k);
 
 % calculate the number wrong, knowing that kmeans does not guarantee 
 % parkinsons = 0 or 1, so try both and take the min

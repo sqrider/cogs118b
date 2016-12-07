@@ -17,7 +17,7 @@ min_feature = 2;
 max_feature = 27;
 
 % For each sample
-for s=1:num_samples
+for s=1:2
     % For each sample start
     for i=min_feature:max_feature
         % For each sample end

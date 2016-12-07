@@ -1,7 +1,7 @@
 function [err,KmusOld,Kmus] = runKMeans(K,fileString, start_feature, end_feature)
 %load data file specified by fileStringfrom Bishop book
 data = load(fileString);
-Y = data(:,28);
+Y = data(:,29);
 %4:11
 data = data(:,start_feature:end_feature);
 %data = data(:,1:26);
@@ -53,20 +53,17 @@ for iter=1:maxiters
     Kmus=recalcMus(X,Rnk);
 
     %check to see if the cluster centers have converged.  If so, break.
+    disp(KmusOld);
+    disp(
     if sum(abs(KmusOld(:)-Kmus(:)))<1e-6
         %disp(iter);
         break
     end
 end
 
-% disp(Rnk(:, 2));
+% disp(Rnk);
 % disp(Y);
 error = sum(xor(Rnk(:,2), Y)) / N;
-othererr = 1 - error;
-if (error > othererr)
-    %Use othererr - col 1
-    
-end
 
 err = min(error, 1 - error);
 

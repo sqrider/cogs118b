@@ -28,6 +28,12 @@ for s=1:num_samples
     end
 end
 
+rank = []
+
+for s=1:num_samples
+	rank.append(km(s, [2:4, i:j, 23:26]));
+end
+
 sample = best;
 percent_error = err;
 start_feature = sf;
