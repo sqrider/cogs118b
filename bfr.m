@@ -9,7 +9,7 @@ sf = 1;
 ef = 26;
 
 num_samples = 26;
-min_feature = 1;
+min_feature = 2;
 max_feature = 26;
 
 % For each sample

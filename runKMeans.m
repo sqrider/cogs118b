@@ -52,6 +52,9 @@ for iter=1:maxiters
     %recalculate mu values based on cluster assignments as per Bishop (9.4)
     Kmus=recalcMus(X,Rnk);
 
+%     disp(size(Kmus));
+%     disp(size(KmusOld));
+    
     %check to see if the cluster centers have converged.  If so, break.
     if sum(abs(KmusOld(:)-Kmus(:)))<1e-6
         %disp(iter);
